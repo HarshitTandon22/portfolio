@@ -46,20 +46,22 @@ const TimelineItem = ({
     <div 
       className={`relative mb-16 md:mb-8 ${isLeft ? 'md:col-start-1' : 'md:col-start-2'}`}
     >
-      {/* Date display - visible on mobile and desktop differently */}
-      <motion.div 
-        className="flex items-center mb-2 md:mb-0"
-        variants={itemVariants}
-      >
-        <div className="md:hidden mr-8 ml-2 text-sm font-semibold text-primary">
-          {date}
-        </div>
-        <div 
-          className={`hidden md:block ${isLeft ? 'ml-auto mr-8' : 'ml-8'} text-sm font-semibold text-primary`}
+      {/* Date display - only if date is provided */}
+      {date && (
+        <motion.div 
+          className="flex items-center mb-2 md:mb-0"
+          variants={itemVariants}
         >
-          {date}
-        </div>
-      </motion.div>
+          <div className="md:hidden mr-8 ml-2 text-sm font-semibold text-primary">
+            {date}
+          </div>
+          <div 
+            className={`hidden md:block ${isLeft ? 'ml-auto mr-8' : 'ml-8'} text-sm font-semibold text-primary`}
+          >
+            {date}
+          </div>
+        </motion.div>
+      )}
       
       {/* Timeline dot */}
       <motion.div 

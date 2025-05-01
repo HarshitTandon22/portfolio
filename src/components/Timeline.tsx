@@ -11,33 +11,29 @@ const Timeline = () => {
 
   const timelineItems = [
     {
-      date: "2022 - Present",
-      title: "Senior Full Stack Developer",
-      description: "Leading development of web applications using React, Node.js, and MongoDB. Implementing microservices architecture and CI/CD pipelines.",
+      title: "Full Stack Web Applications",
+      description: "Building complete web solutions with React, Node.js, and MongoDB. Implementing microservices architecture with RESTful APIs.",
       icon: <Briefcase size={20} />,
       isLeft: false,
       color: "bg-blue-500"
     },
     {
-      date: "2020 - 2022",
-      title: "Full Stack Developer",
-      description: "Built RESTful APIs with Express.js, designed database schemas, and developed responsive front-end interfaces with React and Redux.",
+      title: "Frontend Development",
+      description: "Creating responsive and interactive user interfaces using React, TypeScript and modern CSS frameworks.",
       icon: <Laptop size={20} />,
       isLeft: true,
       color: "bg-purple-500"
     },
     {
-      date: "2018 - 2020",
-      title: "Frontend Developer",
-      description: "Created interactive user interfaces with JavaScript, React, and CSS. Collaborated on UI/UX improvements and implemented design systems.",
+      title: "Backend Development",
+      description: "Developing robust server-side applications with Express.js, designing efficient database schemas, and implementing authentication systems.",
       icon: <Code size={20} />,
       isLeft: false,
       color: "bg-green-500"
     },
     {
-      date: "2014 - 2018",
-      title: "Computer Science Degree",
-      description: "Graduated with honors in Computer Science, focusing on web development and database management systems.",
+      title: "Database Architecture",
+      description: "Designing and implementing database solutions using SQL and NoSQL technologies, with focus on performance and scalability.",
       icon: <GraduationCap size={20} />,
       isLeft: true,
       color: "bg-amber-500"
@@ -104,7 +100,7 @@ const Timeline = () => {
             <span className="absolute -bottom-2 left-1/2 transform -translate-x-1/2 w-20 h-1 bg-gradient-to-r from-blue-500 to-purple-500 rounded-full"></span>
           </h2>
           <p className="section-description">
-            A timeline of my professional experience and education in full stack development.
+            Exploring different areas of full stack development and project work
           </p>
         </motion.div>
 
@@ -139,7 +135,7 @@ const Timeline = () => {
             {timelineItems.map((item, index) => (
               <TimelineItem
                 key={index}
-                date={item.date}
+                date=""
                 title={item.title}
                 description={item.description}
                 isLeft={item.isLeft}
