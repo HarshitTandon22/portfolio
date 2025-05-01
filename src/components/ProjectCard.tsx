@@ -12,6 +12,8 @@ interface ProjectCardProps {
   tags: string[];
   githubUrl?: string;
   demoUrl?: string;
+  colorClass?: string;
+  index?: number;
 }
 
 const ProjectCard = ({
@@ -21,69 +23,105 @@ const ProjectCard = ({
   tags,
   githubUrl,
   demoUrl,
+  colorClass = "from-primary to-primary/50",
+  index = 0
 }: ProjectCardProps) => {
   const [isHovered, setIsHovered] = useState(false);
-  const { elementRef, isIntersecting } = useIntersectionObserver({
-    threshold: 0.2,
-  });
+  
+  // Animation variants for cards
+  const cardVariants = {
+    hidden: {
+      opacity: 0,
+      y: 50
+    },
+    visible: {
+      opacity: 1,
+      y: 0,
+      transition: {
+        type: "spring",
+        stiffness: 100,
+        damping: 12,
+        delay: index * 0.1
+      }
+    }
+  };
 
   return (
     <motion.div
-      ref={elementRef as React.RefObject<HTMLDivElement>}
-      className="rounded-xl overflow-hidden shadow-lg hover:shadow-xl transition-all duration-300 bg-card"
-      initial={{ opacity: 0, y: 50 }}
-      animate={{ 
-        opacity: isIntersecting ? 1 : 0, 
-        y: isIntersecting ? 0 : 50 
-      }}
-      transition={{ duration: 0.5 }}
+      variants={cardVariants}
+      className="relative rounded-xl overflow-hidden shadow-xl transition-all duration-300 h-full"
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
+      whileHover={{ y: -8 }}
     >
-      <div className="relative overflow-hidden" style={{ height: '200px' }}>
-        <img
-          src={image}
-          alt={title}
-          className={`w-full h-full object-cover transition-transform duration-500 ${
-            isHovered ? 'scale-110' : 'scale-100'
-          }`}
-        />
-        <div className={`absolute inset-0 bg-black/50 flex items-center justify-center gap-4 transition-opacity duration-300 ${
-            isHovered ? 'opacity-100' : 'opacity-0'
-          }`}>
-          {githubUrl && (
-            <a
-              href={githubUrl}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="p-2 bg-white/20 backdrop-blur-sm rounded-full hover:bg-white/30 transition-all"
-            >
-              <Github className="h-6 w-6 text-white" />
-            </a>
-          )}
-          {demoUrl && (
-            <a
-              href={demoUrl}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="p-2 bg-white/20 backdrop-blur-sm rounded-full hover:bg-white/30 transition-all"
-            >
-              <ExternalLink className="h-6 w-6 text-white" />
-            </a>
-          )}
+      {/* Gradient border effect */}
+      <div className={`absolute inset-0 p-[1px] rounded-xl bg-gradient-to-br ${colorClass}`}>
+        <div className="absolute inset-0 bg-card rounded-xl"></div>
+      </div>
+      
+      {/* Card content */}
+      <div className="relative z-10 h-full">
+        <div className="relative overflow-hidden" style={{ height: '200px' }}>
+          <img
+            src={image}
+            alt={title}
+            className={`w-full h-full object-cover transition-transform duration-700 ${
+              isHovered ? 'scale-110' : 'scale-100'
+            }`}
+          />
+          
+          {/* Overlay with links */}
+          <div 
+            className={`absolute inset-0 bg-gradient-to-t from-black/60 to-transparent flex items-end justify-center gap-4 p-4 transition-opacity duration-300 ${
+              isHovered ? 'opacity-100' : 'opacity-0'
+            }`}
+          >
+            <div className="flex items-center justify-center gap-4">
+              {githubUrl && (
+                <a
+                  href={githubUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="p-2 bg-white/20 backdrop-blur-sm rounded-full hover:bg-white/30 transition-all transform hover:scale-110"
+                >
+                  <Github className="h-6 w-6 text-white" />
+                </a>
+              )}
+              {demoUrl && (
+                <a
+                  href={demoUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="p-2 bg-white/20 backdrop-blur-sm rounded-full hover:bg-white/30 transition-all transform hover:scale-110"
+                >
+                  <ExternalLink className="h-6 w-6 text-white" />
+                </a>
+              )}
+            </div>
+          </div>
+        </div>
+
+        <div className="p-5">
+          <div className="mb-2">
+            <h3 className={`text-xl font-bold bg-gradient-to-r ${colorClass} bg-clip-text text-transparent`}>
+              {title}
+            </h3>
+          </div>
+          <p className="text-muted-foreground text-sm mb-4">{description}</p>
+          <div className="flex flex-wrap gap-2">
+            {tags.map((tag) => (
+              <Badge key={tag} variant="secondary" className="text-xs">
+                {tag}
+              </Badge>
+            ))}
+          </div>
         </div>
       </div>
-      <div className="p-5">
-        <h3 className="text-xl font-bold mb-2">{title}</h3>
-        <p className="text-muted-foreground text-sm mb-4">{description}</p>
-        <div className="flex flex-wrap gap-2">
-          {tags.map((tag) => (
-            <Badge key={tag} variant="secondary" className="text-xs">
-              {tag}
-            </Badge>
-          ))}
-        </div>
-      </div>
+
+      {/* Background decorative element */}
+      <div className={`absolute -bottom-8 -right-8 w-16 h-16 rounded-full bg-gradient-to-br ${colorClass} opacity-10 transition-opacity duration-300 ${
+        isHovered ? 'opacity-20' : 'opacity-10'
+      }`}></div>
     </motion.div>
   );
 };
