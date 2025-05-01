@@ -4,7 +4,6 @@ import Hero from '@/components/Hero';
 import Timeline from '@/components/Timeline';
 import Projects from '@/components/Projects';
 import Skills from '@/components/Skills';
-import Testimonials from '@/components/Testimonials';
 import Contact from '@/components/Contact';
 import Footer from '@/components/Footer';
 import ThemeToggle from '@/components/ThemeToggle';
@@ -36,7 +35,6 @@ const Index = () => {
         <Timeline />
         <Projects />
         <Skills />
-        <Testimonials />
         <Contact />
       </main>
       
@@ -45,7 +43,7 @@ const Index = () => {
       {/* Scroll to top button */}
       <button 
         onClick={scrollToTop}
-        className="scroll-indicator p-3 bg-primary rounded-full text-primary-foreground shadow-lg transition-transform hover:scale-110"
+        className="fixed bottom-8 right-8 p-3 bg-primary rounded-full text-primary-foreground shadow-lg transition-transform hover:scale-110"
         aria-label="Scroll to top"
       >
         <ChevronUp className="h-5 w-5" />

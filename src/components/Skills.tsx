@@ -8,27 +8,27 @@ const Skills = () => {
   });
 
   const frontendSkills = [
-    { name: 'React', value: 90, color: '#61DAFB' },
-    { name: 'JavaScript', value: 85, color: '#F7DF1E' },
-    { name: 'TypeScript', value: 80, color: '#007ACC' },
-    { name: 'HTML/CSS', value: 95, color: '#E34F26' },
-    { name: 'Next.js', value: 75, color: '#000000' },
+    { name: 'React', value: 40, color: '#61DAFB' },
+    { name: 'JavaScript', value: 42, color: '#F7DF1E' },
+    { name: 'TypeScript', value: 38, color: '#007ACC' },
+    { name: 'HTML/CSS', value: 45, color: '#E34F26' },
+    { name: 'Next.js', value: 40, color: '#000000' },
   ];
 
   const backendSkills = [
-    { name: 'Node.js', value: 75, color: '#339933' },
-    { name: 'Python', value: 65, color: '#3776AB' },
-    { name: 'Express', value: 70, color: '#000000' },
-    { name: 'MongoDB', value: 80, color: '#47A248' },
-    { name: 'SQL', value: 60, color: '#336791' },
+    { name: 'Node.js', value: 41, color: '#339933' },
+    { name: 'Python', value: 39, color: '#3776AB' },
+    { name: 'Express', value: 43, color: '#000000' },
+    { name: 'MongoDB', value: 40, color: '#47A248' },
+    { name: 'SQL', value: 38, color: '#336791' },
   ];
 
   const otherSkills = [
-    { name: 'UI/UX Design', value: 85, color: '#FF7C7C' },
-    { name: 'Git', value: 90, color: '#F05032' },
-    { name: 'Docker', value: 65, color: '#2496ED' },
-    { name: 'AWS', value: 60, color: '#FF9900' },
-    { name: 'Testing', value: 70, color: '#FF4785' },
+    { name: 'Git', value: 44, color: '#F05032' },
+    { name: 'Docker', value: 37, color: '#2496ED' },
+    { name: 'AWS', value: 39, color: '#FF9900' },
+    { name: 'Testing', value: 41, color: '#FF4785' },
+    { name: 'REST APIs', value: 42, color: '#0096FF' },
   ];
 
   const skillGroups = [
@@ -64,7 +64,7 @@ const Skills = () => {
       <div className={`text-center mb-12 ${isIntersecting ? 'animate-fade-in' : 'opacity-0'}`}>
         <h2 className="text-3xl md:text-4xl font-bold mb-4">My Skills</h2>
         <p className="text-muted-foreground max-w-2xl mx-auto">
-          Technologies and tools I've worked with and mastered over the years.
+          Technologies and tools I work with for full stack development.
         </p>
       </div>
 
@@ -107,8 +107,8 @@ const Skills = () => {
                 <Pie
                   data={[
                     { name: 'Frontend', value: 40 },
-                    { name: 'Backend', value: 30 },
-                    { name: 'Other', value: 30 },
+                    { name: 'Backend', value: 40 },
+                    { name: 'Other', value: 40 },
                   ]}
                   cx="50%"
                   cy="50%"

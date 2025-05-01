@@ -9,8 +9,8 @@ const Footer = () => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex flex-col md:flex-row justify-between items-center">
           <div className="mb-6 md:mb-0">
-            <p className="text-lg font-semibold">John Doe</p>
-            <p className="text-sm text-muted-foreground">Full Stack Developer & UI/UX Designer</p>
+            <p className="text-lg font-semibold">Harshit Tandon</p>
+            <p className="text-sm text-muted-foreground">Full Stack Developer</p>
           </div>
           
           <div className="flex space-x-4 mb-6 md:mb-0">
@@ -44,7 +44,7 @@ const Footer = () => {
           </div>
           
           <div className="text-sm text-muted-foreground">
-            <p>© {currentYear} John Doe. All rights reserved.</p>
+            <p>© {currentYear} Harshit Tandon. All rights reserved.</p>
           </div>
         </div>
         

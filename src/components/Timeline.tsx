@@ -1,5 +1,5 @@
 
-import { Calendar, Briefcase, Laptop, GraduationCap } from 'lucide-react';
+import { Calendar, Briefcase, Laptop, GraduationCap, Code } from 'lucide-react';
 import TimelineItem from './TimelineItem';
 import useIntersectionObserver from '@/hooks/useIntersectionObserver';
 
@@ -10,30 +10,30 @@ const Timeline = () => {
 
   const timelineItems = [
     {
-      date: "2023 - Present",
-      title: "Senior Frontend Developer",
-      description: "Leading a team to develop modern, responsive web applications using React, TypeScript and Next.js.",
+      date: "2022 - Present",
+      title: "Senior Full Stack Developer",
+      description: "Leading development of web applications using React, Node.js, and MongoDB. Implementing microservices architecture and CI/CD pipelines.",
       icon: <Briefcase size={20} />,
       isLeft: false
     },
     {
-      date: "2021 - 2023",
-      title: "Frontend Developer",
-      description: "Built interactive user interfaces and implemented responsive designs for various client projects.",
+      date: "2020 - 2022",
+      title: "Full Stack Developer",
+      description: "Built RESTful APIs with Express.js, designed database schemas, and developed responsive front-end interfaces with React and Redux.",
       icon: <Laptop size={20} />,
       isLeft: true
     },
     {
-      date: "2019 - 2021",
-      title: "Junior Web Developer",
-      description: "Developed and maintained websites, collaborated on UI/UX improvements and learned modern web technologies.",
-      icon: <Calendar size={20} />,
+      date: "2018 - 2020",
+      title: "Frontend Developer",
+      description: "Created interactive user interfaces with JavaScript, React, and CSS. Collaborated on UI/UX improvements and implemented design systems.",
+      icon: <Code size={20} />,
       isLeft: false
     },
     {
-      date: "2015 - 2019",
+      date: "2014 - 2018",
       title: "Computer Science Degree",
-      description: "Graduated with honors in Computer Science, focusing on web development and user interface design.",
+      description: "Graduated with honors in Computer Science, focusing on web development and database management systems.",
       icon: <GraduationCap size={20} />,
       isLeft: true
     }
@@ -44,7 +44,7 @@ const Timeline = () => {
       <div className="text-center mb-16">
         <h2 className="text-3xl md:text-4xl font-bold mb-4">My Journey</h2>
         <p className="text-muted-foreground max-w-2xl mx-auto">
-          A timeline of my professional experience and education.
+          A timeline of my professional experience and education in full stack development.
         </p>
       </div>
 

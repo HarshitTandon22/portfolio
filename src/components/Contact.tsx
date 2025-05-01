@@ -42,7 +42,7 @@ const Contact = () => {
   };
 
   const copyEmail = () => {
-    navigator.clipboard.writeText('john.doe@example.com');
+    navigator.clipboard.writeText('harshittandon94@gmail.com');
     toast({
       title: "Email copied!",
       description: "Email address copied to clipboard.",
@@ -64,7 +64,7 @@ const Contact = () => {
       <div className={`text-center mb-12 ${isIntersecting ? 'animate-fade-in' : 'opacity-0'}`}>
         <h2 className="text-3xl md:text-4xl font-bold mb-4">Get In Touch</h2>
         <p className="text-muted-foreground max-w-2xl mx-auto">
-          Have a project in mind or want to collaborate? Feel free to reach out!
+          Have a project in mind or want to discuss a potential collaboration? I'd love to hear from you!
         </p>
       </div>
 
@@ -109,7 +109,7 @@ const Contact = () => {
                 name="message"
                 value={formData.message}
                 onChange={handleChange}
-                placeholder="Hello, I'd like to talk about..."
+                placeholder="Hello, I'd like to discuss a project..."
                 required
                 rows={5}
                 className="w-full"
@@ -131,7 +131,7 @@ const Contact = () => {
               <h3 className="text-xl font-semibold mb-4">Contact Information</h3>
               <div className="flex items-center space-x-2 mb-4">
                 <Mail className="h-5 w-5 text-primary" />
-                <span>john.doe@example.com</span>
+                <span>harshittandon94@gmail.com</span>
                 <button onClick={copyEmail} className="p-1 hover:bg-secondary rounded-full" title="Copy email">
                   <Copy className="h-4 w-4" />
                 </button>
@@ -159,8 +159,8 @@ const Contact = () => {
             <div className="bg-secondary p-6 rounded-lg mt-8">
               <h4 className="font-semibold mb-2">Open to Opportunities</h4>
               <p className="text-sm text-muted-foreground mb-4">
-                I'm currently available for freelance work and full-time positions.
-                If you have a project that needs coding skills, I'd love to hear about it!
+                I'm currently available for freelance projects and full-time positions.
+                If you have a challenging full stack development project, let's discuss how I can help!
               </p>
               <Button variant="outline" className="w-full" onClick={() => window.open('resume.pdf')}>
                 Download My Resume

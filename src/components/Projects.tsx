@@ -13,37 +13,37 @@ const Projects = () => {
   const projects = [
     {
       id: 1,
-      title: 'E-Commerce Dashboard',
-      description: 'A modern dashboard for e-commerce stores with analytics and inventory management.',
+      title: 'Full Stack E-Commerce Platform',
+      description: 'A comprehensive e-commerce solution with product management, cart functionality, and payment integration using MERN stack.',
       image: 'https://images.unsplash.com/photo-1460925895917-afdab827c52f?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80',
-      tags: ['React', 'TypeScript', 'Tailwind'],
+      tags: ['React', 'Node.js', 'MongoDB', 'Express'],
       githubUrl: '#',
       demoUrl: '#',
     },
     {
       id: 2,
-      title: 'Social Media App',
-      description: 'A fully featured social network with real-time messaging and post sharing.',
+      title: 'Real-time Chat Application',
+      description: 'A full-featured chat platform with real-time messaging, user authentication, and notification system using Socket.io.',
       image: 'https://images.unsplash.com/photo-1498050108023-c5249f4df085?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80',
-      tags: ['Next.js', 'React', 'MongoDB'],
+      tags: ['React', 'Node.js', 'Socket.io', 'MongoDB'],
       githubUrl: '#',
       demoUrl: '#',
     },
     {
       id: 3,
-      title: 'Weather Forecast',
-      description: 'A beautiful weather app with 7-day forecasts and location-based weather data.',
+      title: 'Task Management System',
+      description: 'A Kanban-style project management tool with drag-and-drop tasks, team collaboration features, and progress tracking.',
       image: 'https://images.unsplash.com/photo-1531297484001-80022131f5a1?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80',
-      tags: ['JavaScript', 'API', 'CSS'],
+      tags: ['React', 'TypeScript', 'Express', 'PostgreSQL'],
       githubUrl: '#',
       demoUrl: '#',
     },
     {
       id: 4,
-      title: 'Task Management Tool',
-      description: 'A Kanban-style task management application with drag-and-drop functionality.',
+      title: 'Blog Content Platform',
+      description: 'A full stack blogging platform with markdown support, user authentication, comment system, and content recommendation.',
       image: 'https://images.unsplash.com/photo-1486312338219-ce68d2c6f44d?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80',
-      tags: ['React', 'Redux', 'Firebase'],
+      tags: ['Next.js', 'Node.js', 'MongoDB', 'GraphQL'],
       githubUrl: '#',
       demoUrl: '#',
     },
@@ -60,7 +60,7 @@ const Projects = () => {
       <div className={`text-center mb-12 ${isIntersecting ? 'animate-fade-in' : 'opacity-0'}`}>
         <h2 className="text-3xl md:text-4xl font-bold mb-4">My Projects</h2>
         <p className="text-muted-foreground max-w-2xl mx-auto">
-          A selection of my recent work and personal projects.
+          Full stack applications I've built from front to back.
         </p>
       </div>
 
