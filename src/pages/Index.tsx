@@ -1,5 +1,6 @@
 
 import { useEffect } from 'react';
+import { motion, useScroll, useSpring } from 'framer-motion';
 import Hero from '@/components/Hero';
 import Timeline from '@/components/Timeline';
 import Projects from '@/components/Projects';
@@ -24,8 +25,22 @@ const Index = () => {
     });
   };
 
+  // Scroll progress indicator
+  const { scrollYProgress } = useScroll();
+  const scaleX = useSpring(scrollYProgress, {
+    stiffness: 100, 
+    damping: 30, 
+    restDelta: 0.001
+  });
+
   return (
     <div className="min-h-screen">
+      {/* Scroll progress indicator */}
+      <motion.div 
+        className="fixed top-0 left-0 right-0 h-1 bg-primary z-50 origin-left"
+        style={{ scaleX }}
+      />
+      
       {/* Theme toggle */}
       <ThemeToggle />
       
@@ -41,13 +56,18 @@ const Index = () => {
       <Footer />
       
       {/* Scroll to top button */}
-      <button 
+      <motion.button 
         onClick={scrollToTop}
-        className="fixed bottom-8 right-8 p-3 bg-primary rounded-full text-primary-foreground shadow-lg transition-transform hover:scale-110"
+        className="fixed bottom-8 right-8 p-3 bg-primary rounded-full text-primary-foreground shadow-lg z-40"
         aria-label="Scroll to top"
+        whileHover={{ scale: 1.1 }}
+        whileTap={{ scale: 0.95 }}
+        initial={{ opacity: 0, y: 20 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ delay: 1 }}
       >
         <ChevronUp className="h-5 w-5" />
-      </button>
+      </motion.button>
     </div>
   );
 };

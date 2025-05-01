@@ -2,6 +2,7 @@
 import { useState } from 'react';
 import { Github, ExternalLink } from 'lucide-react';
 import { Badge } from '@/components/ui/badge';
+import { motion } from 'framer-motion';
 import useIntersectionObserver from '@/hooks/useIntersectionObserver';
 
 interface ProjectCardProps {
@@ -27,10 +28,15 @@ const ProjectCard = ({
   });
 
   return (
-    <div
+    <motion.div
       ref={elementRef as React.RefObject<HTMLDivElement>}
-      className={`rounded-xl overflow-hidden shadow-lg hover:shadow-xl transition-all duration-300 bg-card
-        ${isIntersecting ? 'animate-fade-in' : 'opacity-0'}`}
+      className="rounded-xl overflow-hidden shadow-lg hover:shadow-xl transition-all duration-300 bg-card"
+      initial={{ opacity: 0, y: 50 }}
+      animate={{ 
+        opacity: isIntersecting ? 1 : 0, 
+        y: isIntersecting ? 0 : 50 
+      }}
+      transition={{ duration: 0.5 }}
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
     >
@@ -78,7 +84,7 @@ const ProjectCard = ({
           ))}
         </div>
       </div>
-    </div>
+    </motion.div>
   );
 };
 
