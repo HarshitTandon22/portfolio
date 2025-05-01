@@ -1,6 +1,7 @@
 
 import { motion } from 'framer-motion';
 import { ReactNode } from 'react';
+import { useIsMobile } from '@/hooks/use-mobile';
 
 interface TimelineItemProps {
   date: string;
@@ -21,6 +22,8 @@ const TimelineItem = ({
   color = "bg-primary",
   index = 0
 }: TimelineItemProps) => {
+  const isMobile = useIsMobile();
+  
   // Animation variants
   const itemVariants = {
     hidden: { 
@@ -41,7 +44,7 @@ const TimelineItem = ({
 
   return (
     <div 
-      className={`relative mb-16 md:mb-0 ${isLeft ? 'md:col-start-1' : 'md:col-start-2'}`}
+      className={`relative mb-16 md:mb-8 ${isLeft ? 'md:col-start-1' : 'md:col-start-2'}`}
     >
       {/* Date display - visible on mobile and desktop differently */}
       <motion.div 
@@ -80,7 +83,7 @@ const TimelineItem = ({
       
       {/* Content card */}
       <motion.div 
-        className={`ml-12 md:ml-0 md:w-[90%] p-6 rounded-lg shadow-lg ${isLeft ? 'md:mr-8' : 'md:ml-8'}`}
+        className={`ml-12 md:ml-0 md:w-[95%] p-6 rounded-lg shadow-lg ${isLeft ? 'md:mr-8' : 'md:ml-8'}`}
         style={{ 
           background: 'linear-gradient(to bottom right, var(--card), var(--card))', 
           borderLeft: `4px solid var(--${color.replace('bg-', '')})` 
@@ -90,9 +93,13 @@ const TimelineItem = ({
         animate="visible"
         whileHover={{ y: -5, boxShadow: "0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04)" }}
       >
-        <div className="flex flex-col gap-2">
+        <div className="flex flex-col gap-3">
           <h3 className="text-xl font-semibold">{title}</h3>
           <p className="text-muted-foreground">{description}</p>
+          
+          {/* Additional decorative elements */}
+          <div className="absolute -bottom-2 -right-2 w-16 h-16 rounded-full opacity-5" style={{ background: `var(--${color.replace('bg-', '')})` }}></div>
+          <div className="absolute top-1 left-1 w-3 h-3 rounded-full opacity-20" style={{ background: `var(--${color.replace('bg-', '')})` }}></div>
         </div>
       </motion.div>
     </div>

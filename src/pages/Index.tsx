@@ -34,7 +34,7 @@ const Index = () => {
   });
 
   return (
-    <div className="min-h-screen">
+    <div className="min-h-screen w-full overflow-x-hidden">
       {/* Scroll progress indicator */}
       <motion.div 
         className="fixed top-0 left-0 right-0 h-1 bg-primary z-50 origin-left"
@@ -42,10 +42,12 @@ const Index = () => {
       />
       
       {/* Theme toggle */}
-      <ThemeToggle />
+      <div className="fixed top-4 right-4 z-50">
+        <ThemeToggle />
+      </div>
       
       {/* Main content */}
-      <main>
+      <main className="w-full">
         <Hero />
         <Timeline />
         <Projects />
